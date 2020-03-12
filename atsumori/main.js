@@ -217,6 +217,8 @@ function play() {
   ellipse(width_br - 100, 60, 150);
   fill(c_text);
   text(time - count_time, width_br - 110, 110, 70, 200);
+
+  sound_hit.stop();
 }
 
 //終了画面
