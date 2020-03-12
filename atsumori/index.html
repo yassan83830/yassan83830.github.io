@@ -7,6 +7,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/addons/p5.dom.min.js"></script>
+
+  <script>
+    window.addEventListener("touchstart", function (event) {
+      event.preventDefault();
+    }, {
+      passive: false
+    });
+    window.addEventListener("touchmove", function (event) {
+      event.preventDefault();
+    }, {
+      passive: false
+    });
+  </script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta charset="utf-8" />
   <meta name="apple-mobile-web-app-capable" content="yes">
