@@ -53,6 +53,11 @@ function preload() {
   //フォントの読込
   font = loadFont("./CP_Revenge.ttf");
 
+  //サウンドの読込
+  sound_start = loadSound("./sound/start.mp3");
+  sound_kakin = loadSound("./sound/kakin.mp3");
+  sound_hit = loadSound("./sound/hit.mp3");
+
 }
 
 function setup() {
@@ -136,20 +141,24 @@ function start() {
 //マウスが押されたら
 function mousePressed() {
   if (checkRegion(mouseX, mouseY, x_bp, y_bp, width_bp, height_bp)) {
+    sound_start.play();
     flag_scene = PLAY;
   }
   if (checkRegion(mouseX, mouseY, x_bp, y_bp + height_bp + 10, width_bp, height_bp)) {
     fill(c_text);
+    sound_kakin.play();
     flag_kakin = true;
   }
 }
 
 function touchMoved() {
   if (checkRegion(touchX, touchY, x_bp, y_bp, width_bp, height_bp)) {
+    sound_start.play();
     flag_scene = PLAY;
   }
   if (checkRegion(touchX, touchY, x_bp, y_bp + height_bp + 10, width_bp, height_bp)) {
     fill(c_text);
+    sound_kakin.play();
     flag_kakin = true;
   }
 
@@ -172,6 +181,7 @@ function play() {
     if (flag_hit_moritas[i] == 0) {
       moritas[i].drawMorita();
       if (checkRegion(mouseX, mouseY, moritas[i].pos.x, moritas[i].pos.y, size_hit, size_hit)) {
+        sound_hit.play();
         flag_hit_moritas[i] = 1;
         count_hit++;
       }
