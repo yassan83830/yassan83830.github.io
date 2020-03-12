@@ -56,7 +56,7 @@ function preload() {
   //サウンドの読込
   sound_start = loadSound("./sound/start.mp3");
   sound_kakin = loadSound("./sound/kakin.mp3");
-  sound_hit = loadSound("./sound/hit.mp3");
+  //sound_hit = loadSound("./sound/hit.mp3");
 
 }
 
@@ -181,7 +181,7 @@ function play() {
     if (flag_hit_moritas[i] == 0) {
       moritas[i].drawMorita();
       if (checkRegion(mouseX, mouseY, moritas[i].pos.x, moritas[i].pos.y, size_hit, size_hit)) {
-        sound_hit.play();
+        //sound_hit.play();
         flag_hit_moritas[i] = 1;
         count_hit++;
       }
@@ -218,7 +218,7 @@ function play() {
   fill(c_text);
   text(time - count_time, width_br - 110, 110, 70, 200);
 
-  sound_hit.stop();
+  //sound_hit.stop();
 }
 
 //終了画面
