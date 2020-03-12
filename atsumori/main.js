@@ -16,8 +16,8 @@ let size_hit = size_player * 0.6; //当たり判定サイズ
 /* ゲーム全体 */
 let font;
 let img_bg;
-let width_br = windowWidth;
-let height_br = windowHeight; //ブラウザのサイズ
+let width_br = window.innerWidth;
+let height_br = window.innerHeight; //ブラウザのサイズ
 let START = -1,
   PLAY = 0,
   FIN = 1,
