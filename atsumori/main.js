@@ -130,7 +130,7 @@ function start() {
     textSize(70);
     fill(0, 100, 100);
     text(
-      "全森モード解禁!\n丸が大きくなるよ\n",
+      "全森モード解禁!\n手が大きくなるよ\n",
       x_bp - width_bp / 1.5,
       y_bp + height_bp * 2.2
     );
