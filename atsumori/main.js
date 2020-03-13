@@ -25,7 +25,7 @@ let flag_scene;
 let c_text = 0;
 
 /* サウンド */
-let sound_start, sound_kakin, sound_hit;
+let sound_start, sound_zenmori;
 
 /* ボタン width_br/2,height_br/2, 120,50 */
 let width_bp = 360,
@@ -40,22 +40,22 @@ let count_frame;
 let time_fin; //終了画面の表示時間
 let count_time_fin;
 
-/* 課金 */
-let flag_kakin = false;
+/* 全森 */
+let flag_zenmori = false;
 
 function preload() {
   //画像の読込
-  img_player = loadImage("./hand.png");
-  img_bg = loadImage("./bg.png");
-  img_mori = loadImage("./taruki.png");
+  img_player = loadImage("./img/hand.png");
+  img_bg = loadImage("./img/bg.png");
+  img_mori = loadImage("./img/taruki.png");
 
   //フォントの読込
-  font = loadFont("./CP_Revenge.ttf");
+  font = loadFont("./font/CP_Revenge.ttf");
 
   //サウンドの読込
   sound_start = loadSound("./sound/start.mp3");
-  sound_kakin = loadSound("./sound/kakin.mp3");
-  sound_hit = loadSound("./sound/hit.mp3");
+  sound_zenmori = loadSound("./sound/zenmori.mp3");
+  //sound_hit = loadSound("./sound/hit.mp3");
 }
 
 function setup() {
@@ -125,8 +125,8 @@ function start() {
 
   strokeWeight(5);
 
-  //課金額の表示
-  if (flag_kakin) {
+  //全森額の表示
+  if (flag_zenmori) {
     textSize(70);
     fill(0, 100, 100);
     text(
@@ -161,8 +161,8 @@ function mousePressed() {
     flag_scene == START
   ) {
     fill(c_text);
-    sound_kakin.play();
-    flag_kakin = true;
+    sound_zenmori.play();
+    flag_zenmori = true;
   }
 }
 
@@ -188,8 +188,8 @@ function touchMoved() {
     flag_scene == START
   ) {
     fill(c_text);
-    sound_kakin.play();
-    flag_kakin = true;
+    sound_zenmori.play();
+    flag_zenmori = true;
   }
 
   // This prevents dragging screen around
@@ -228,8 +228,8 @@ function play() {
     }
   }
 
-  //課金したらサイズ変更
-  if (flag_kakin) {
+  //全森したらサイズ変更
+  if (flag_zenmori) {
     size_player = 320;
     size_hit = size_player * 0.7;
 
@@ -246,8 +246,8 @@ function play() {
   if (count_hit == NUM) {
     flag_scene = FIN;
   }
-  fill(70, 100, 100);
-  text(count_hit + "/" + NUM + "匹", 100, 100, 70, 200);
+  fill(90, 100, 100);
+  text(count_hit + "/" + NUM, 100, 100, 70, 200);
 
   //プレイヤーの表示
   image(img_player, mouseX, mouseY, size_player, size_player);
