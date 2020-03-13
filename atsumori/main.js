@@ -296,10 +296,9 @@ function checkRegion(
   }
 }
 
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight);
-//   //y = windowHeight/2;
-// }
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
 
 //森田さんクラス
 class Morita {
