@@ -140,10 +140,15 @@ function start() {
 
 //マウスが押されたら
 function mousePressed() {
-  if (checkRegion(mouseX, mouseY, x_bp, y_bp, width_bp, height_bp)) {
+  //スタート
+  if (
+    checkRegion(mouseX, mouseY, x_bp, y_bp, width_bp, height_bp) &&
+    flag_scene == START
+  ) {
     sound_start.play();
     flag_scene = PLAY;
   }
+  //全森
   if (
     checkRegion(
       mouseX,
@@ -152,7 +157,8 @@ function mousePressed() {
       y_bp + height_bp + 10,
       width_bp,
       height_bp
-    )
+    ) &&
+    flag_scene == START
   ) {
     fill(c_text);
     sound_kakin.play();
@@ -160,11 +166,16 @@ function mousePressed() {
   }
 }
 
-function touchMoved() {
-  if (checkRegion(touchX, touchY, x_bp, y_bp, width_bp, height_bp)) {
+function touchStarted() {
+  //プレイ
+  if (
+    checkRegion(touchX, touchY, x_bp, y_bp, width_bp, height_bp) &&
+    flag_scene == START
+  ) {
     sound_start.play();
     flag_scene = PLAY;
   }
+  //全森
   if (
     checkRegion(
       touchX,
@@ -173,7 +184,8 @@ function touchMoved() {
       y_bp + height_bp + 10,
       width_bp,
       height_bp
-    )
+    ) &&
+    flag_scene == START
   ) {
     fill(c_text);
     sound_kakin.play();
@@ -210,7 +222,7 @@ function play() {
         )
       ) {
         flag_hit_moritas[i] = 1;
-        sound_hit.play();
+        //sound_hit.play();
         count_hit++;
       }
     }
