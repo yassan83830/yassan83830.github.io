@@ -218,8 +218,8 @@ function play() {
     size_player = 320;
     size_hit = size_player * 0.7;
 
-    //残り時間の半分経過したら元のサイズに変更
-    if (time / 2 >= time - count_time) {
+    //残り3秒になったら元のサイズに変更
+    if (3 >= time - count_time) {
       size_player = 100;
       size_hit = size_player * 0.7;
       fill(0, 100, 100);
