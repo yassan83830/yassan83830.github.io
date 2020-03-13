@@ -12,7 +12,6 @@ let count_hit; //当たった数
 let size_player = 100; //サイズ
 let size_hit = size_player * 0.6; //当たり判定サイズ
 
-
 /* ゲーム全体 */
 let font;
 let img_bg;
@@ -56,7 +55,6 @@ function preload() {
   //サウンドの読込
   sound_start = loadSound("./sound/start.mp3");
   sound_kakin = loadSound("./sound/kakin.mp3");
-
 }
 
 function setup() {
@@ -77,7 +75,6 @@ function setup() {
   //最初にスタート画面の表示
   flag_scene = START;
 }
-
 
 function draw() {
   background(img_bg);
@@ -131,10 +128,13 @@ function start() {
   if (flag_kakin) {
     textSize(70);
     fill(0, 100, 100);
-    text("全森モード解禁 課金ありがとうだなも！\n98000ベル\n", x_bp - width_bp * 1.75, y_bp + height_bp * 2.2);
+    text(
+      "全森モード解禁 課金ありがとう\n98000ベル\n",
+      x_bp - width_bp * 1.75,
+      y_bp + height_bp * 2.2
+    );
     textSize(120);
   }
-
 }
 
 //マウスが押されたら
@@ -143,7 +143,16 @@ function mousePressed() {
     sound_start.play();
     flag_scene = PLAY;
   }
-  if (checkRegion(mouseX, mouseY, x_bp, y_bp + height_bp + 10, width_bp, height_bp)) {
+  if (
+    checkRegion(
+      mouseX,
+      mouseY,
+      x_bp,
+      y_bp + height_bp + 10,
+      width_bp,
+      height_bp
+    )
+  ) {
     fill(c_text);
     sound_kakin.play();
     flag_kakin = true;
@@ -155,7 +164,16 @@ function touchMoved() {
     sound_start.play();
     flag_scene = PLAY;
   }
-  if (checkRegion(touchX, touchY, x_bp, y_bp + height_bp + 10, width_bp, height_bp)) {
+  if (
+    checkRegion(
+      touchX,
+      touchY,
+      x_bp,
+      y_bp + height_bp + 10,
+      width_bp,
+      height_bp
+    )
+  ) {
     fill(c_text);
     sound_kakin.play();
     flag_kakin = true;
@@ -179,7 +197,16 @@ function play() {
   for (let i = 0; i < NUM; i++) {
     if (flag_hit_moritas[i] == 0) {
       moritas[i].drawMorita();
-      if (checkRegion(mouseX, mouseY, moritas[i].pos.x, moritas[i].pos.y, size_hit, size_hit)) {
+      if (
+        checkRegion(
+          mouseX,
+          mouseY,
+          moritas[i].pos.x,
+          moritas[i].pos.y,
+          size_hit,
+          size_hit
+        )
+      ) {
         flag_hit_moritas[i] = 1;
         count_hit++;
       }
@@ -234,8 +261,20 @@ function fin(str) {
 }
 
 //当たり判定
-function checkRegion(_x_play, _y_play, _x_target, _y_target, _width_target, _height_target) {
-  if (_x_target - _width_target * 0.5 < _x_play && _x_play < _x_target + _width_target * 0.5 && _y_target - _height_target * 0.5 < _y_play && _y_play < _y_target + _height_target * 0.5) {
+function checkRegion(
+  _x_play,
+  _y_play,
+  _x_target,
+  _y_target,
+  _width_target,
+  _height_target
+) {
+  if (
+    _x_target - _width_target * 0.5 < _x_play &&
+    _x_play < _x_target + _width_target * 0.5 &&
+    _y_target - _height_target * 0.5 < _y_play &&
+    _y_play < _y_target + _height_target * 0.5
+  ) {
     return true;
   } else {
     return false;
@@ -249,7 +288,6 @@ function windowResized() {
 
 //森田さんクラス
 class Morita {
-
   constructor() {
     this.pos = createVector(random(width), random(height));
     this.vel = createVector(random(-1, 1), random(-1, 1));
