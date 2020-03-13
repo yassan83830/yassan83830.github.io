@@ -25,7 +25,7 @@ let flag_scene;
 let c_text = 0;
 
 /* サウンド */
-let sound_start, sound_kakin;
+let sound_start, sound_kakin, sound_hit;
 
 /* ボタン width_br/2,height_br/2, 120,50 */
 let width_bp = 360,
@@ -55,6 +55,7 @@ function preload() {
   //サウンドの読込
   sound_start = loadSound("./sound/start.mp3");
   sound_kakin = loadSound("./sound/kakin.mp3");
+  sound_hit = loadSound("./sound/hit.mp3");
 }
 
 function setup() {
@@ -197,6 +198,7 @@ function play() {
   for (let i = 0; i < NUM; i++) {
     if (flag_hit_moritas[i] == 0) {
       moritas[i].drawMorita();
+      //森田さんの当たり判定
       if (
         checkRegion(
           mouseX,
@@ -208,6 +210,7 @@ function play() {
         )
       ) {
         flag_hit_moritas[i] = 1;
+        sound_hit.play();
         count_hit++;
       }
     }
@@ -281,10 +284,10 @@ function checkRegion(
   }
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  //y = windowHeight/2;
-}
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+//   //y = windowHeight/2;
+// }
 
 //森田さんクラス
 class Morita {
