@@ -166,7 +166,7 @@ function mousePressed() {
   }
 }
 
-function touchStarted() {
+function touchMoved() {
   //プレイ
   if (
     checkRegion(touchX, touchY, x_bp, y_bp, width_bp, height_bp) &&
