@@ -120,7 +120,7 @@ function start() {
   fill(120);
   rect(x_bp, y_bp + height_bp + 10, width_bp, height_bp);
   fill(c_text);
-  text("課金", x_bp - width_bp / 3.5, y_bp + height_bp * 1.25 + 20);
+  text("全森", x_bp - width_bp / 3.5, y_bp + height_bp * 1.25 + 20);
 
   strokeWeight(5);
 
@@ -129,8 +129,8 @@ function start() {
     textSize(70);
     fill(0, 100, 100);
     text(
-      "全森モード解禁 課金ありがとう\n98000ベル\n",
-      x_bp - width_bp * 1.75,
+      "全森モード解禁!\n丸が大きくなるよ\n",
+      x_bp - width_bp / 1.5,
       y_bp + height_bp * 2.2
     );
     textSize(120);
